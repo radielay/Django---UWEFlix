@@ -1,0 +1,35 @@
+{% extends "contact/contact_page.html" %}
+
+    {% block content %}
+    
+    {% load static %}
+
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Contact</title>
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        </head>
+        <body>
+            <div class="w3-container">
+                <div class = "row">
+                    <div class="column">
+                        <br>
+                        <br>
+                        <h4 style="background-color:powderblue;"><b>Send your Inquiry to our Support Team</b></h4>
+                        <br>
+                        <center>
+                        <form method = "POST">
+                            {% csrf_token %}
+                            {{ form.as_p }}   
+                            <input type="submit" id="upload" value="Upload" style="margin-left: 22%; background-color: powderblue;"/>
+                            <a href="{{request.META.HTTP_REFERER}}"><input type="button" id="back" value="Go Back" style="margin-left: 10%;"/></a>
+                        </form>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+
+{% endblock %}

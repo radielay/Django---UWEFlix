@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang = "en" class ="no-js">
+<head>
+<title>UWE Flix</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="{% static 'css\normalize.css' %}">
+<link rel="stylesheet" href="{% static 'css\skeleton.css' %}">
+<style>
+  a.custom-hover-color:hover { 
+    background-color: powderblue !important;
+  }
+  #payment{
+    background-color:#8cc2ee;
+    padding: 0%;
+    height: 4.2vw;
+    width: 12vw;
+    margin-left: 55vw;
+    border-radius: 15px;
+    color: black;
+  }
+  #payment:hover{
+    box-shadow: 2px 2.5px 2.5px 2px black;
+  }
+  #back{
+    border-radius: 15px;
+  }
+  #back:hover{
+    box-shadow: 2px 2.5px 2.5px 2px black;
+    background-color: rgb(83, 246, 175);
+  }
+</style>
+</head>
+<body>  
+
+<!-- Navbar top-->
+
+
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="{% url 'home' %}" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color"><b>UWE</b> Flix</a>
+    
+    
+    <!-- Float links to the right. Hide them on small screens -->
+    
+    <div class="w3-right w3-hide-small">
+      
+      <a href="" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color">Log in</a>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Header -->
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1200px;" id="home">
+
+</header>
+
+
+{% block content %}
+
+<!-- Page content -->
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  
+  <center>
+  <h3>Registration successful!</h3>
+  <br>
+  <br>
+  <a href="{% url 'home' %}" class="w3-button" style="background-color: powderblue;">Return to Main</a>
+  </center>
+
+{% endblock %}
+</body>
+</html>

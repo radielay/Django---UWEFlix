@@ -1,0 +1,47 @@
+{% extends "staff/accounts.html" %}
+
+    {% block content %}
+    {% load static %}
+
+        <body>
+            <div class="container">
+                <div class="row">
+                    <center>
+                    <div class="two-third.column">
+                        {% if submitted %}
+                            <h1>Club has been registered successfully!!</h1>
+                            <h3> Go back to <a href = 'accounts'>Accounts </a> </h3>
+                        {% else %}
+                            <form action ="" method = POST>
+                                <h4 style="background-color:powderblue;"><b>Registration of Club</b></h4>
+                                <br>
+                                <br>
+                                {% csrf_token %}
+                                {{form.as_p}}<br><br>   
+
+                            {% if msg %}
+                              <h4 style="color: crimson;">A club with that name already exists!</h4>
+                            {% endif %}
+                            <input type = "submit" id="register" style="margin-left: 6%;" value = "Submit" class = "button-primary"></form>           
+                        {% endif %}           
+
+                    </div>
+                    </center>
+                    
+                </div>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </br>
+    </body>
+    
+
+    {% endblock %}

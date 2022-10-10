@@ -1,0 +1,47 @@
+{% extends "staff/accounts.html" %}
+
+
+    
+    {% block content %}
+    
+    {% load static %}
+
+    <body>
+
+        <br>
+        <br>
+        
+        
+        <h2>{{club}}</h2>
+        
+        
+              <div class="card">
+                <div class="card-header">
+                   {{club }}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"> {{ Club }}</h5>
+                  <p class="card-text">
+                     <ul>
+                        <li>Address: {{ club.address }} {{club.address2}}  {{club.city}} </li>
+                        <li>Postcode: {{ club.postcode }}</li>
+                        <li>Contact number: {{ club.contact_number }}</li>
+                        <li>Landline number: {{ club.landline_number }}</li>
+                        <br>
+                        <li>Representative: {{ club.rep_name }}</li>
+                        <li>Email: {{ club.rep_email }}</li>
+                     </ul>
+              </p>
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'accounts' %}"><input type="button" id="back" value="Go Back" style="margin-left: 6%;"/></a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    </body>
+        
+
+    {% endblock %}

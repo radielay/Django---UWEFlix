@@ -1,0 +1,68 @@
+{% extends "payment/payment_page.html"%}
+
+{% load static %}
+
+{% block content %}
+<html>
+    <head>
+        <title>UWE Flix</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <link rel="stylesheet" href="{% static 'css\normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css\skeleton.css' %}">
+        
+    </head>
+    <body>
+
+        <!-- Navbar top-->
+        <div class="w3-top">
+            <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+                <a href="{% url 'logged_in' %}" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color"><b>UWE</b> Flix</a>
+                <a href="{% url 'add_credits' %}" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color">Add Credits</a>
+      
+                <!-- Float links to the right. Hide them on small screens -->
+      
+                <div class="w3-right w3-hide-small">
+                    <a href="{% url 'logged_in' %}" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color">Return</a>
+                    <a href="{% url 'shopping_cart' %}" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color"><img src="{% static 'shopping_cart.jpg' %}" style="width:20px; height:20px"></a>
+                    <a href="{% url 'logout' %}" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color">Log out</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <br>
+            <br>
+            <br>
+            <h4 style="background-color:powderblue;"><b>Confirm your payment</b></h4>
+            <br>
+            {% if orders %}
+                <center>
+                <form method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }} 
+                    <input type="submit" id="payment" value="Pay now" style="margin-left: 20%; background-color: powderblue;"/>
+                    <a href="{% url 'shopping_cart' %}"><input type="button" id="back" value="Go Back" style="margin-left: 10%;"/></a>
+                </form>
+                <br>
+                {% if msg %}
+                    <h4 style="color: crimson;">Not enough credits</h4>
+                {% endif %}
+                {% if msg_uname %}
+                    <h4 style="color: crimson;"> The username entered is invalid</h4>
+                {% endif %}
+                {% if msg_pass %}
+                    <h4 style="color: crimson;"> The password entered is invalid</h4>
+                {% endif %}
+                </center>
+            {% else %}
+                <p style="color: crimson; font-size: 16px;">Your shopping cart is empty!</p>
+                <a href="{% url 'shopping_cart' %}"><input type="button" id="back" value="Go Back"/></a>
+            {% endif %}
+            
+        </div>
+
+    </body>
+</html>
+{% endblock %}

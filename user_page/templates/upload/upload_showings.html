@@ -1,0 +1,37 @@
+{% extends "upload/upload_page.html" %}
+
+    {% block content %}
+    
+    {% load static %}
+
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Upload cinema information </title>
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        </head>
+        <body>
+            <div class="w3-container">
+                <div class = "row">
+                    <div class="column">
+                        <br>
+                        <h4 style="background-color:powderblue;"><b>Upload Showing Details</b></h4>
+                        <br>
+                        <br>
+                        <br>
+                        <form method = "POST" style="margin-left: 35%;">
+                            {% csrf_token %}
+                            {{ form.as_p }}   
+                            <br>
+                            <input type="submit" id="upload" value="Upload" style="margin-left: 9%; background-color:powderblue"/>      
+                            <a href="{{request.META.HTTP_REFERER}}"><input type="button" id="back" value="Go Back" style="margin-left: 10%;"/></a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+
+
+
+{% endblock %}

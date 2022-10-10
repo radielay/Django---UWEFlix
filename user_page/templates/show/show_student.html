@@ -1,0 +1,44 @@
+{% extends "staff/accounts.html" %}
+
+
+    
+    {% block content %}
+    
+    {% load static %}
+
+    <body>
+
+        <br>
+        <br>
+        
+        <h2>Student: {{student}}</h2>
+        
+        
+              <div class="card">
+                <div class="card-header">
+                    User ID: {{ student.id_number }}
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title"> {{ student }}</h5>
+                  <p class="card-text">
+                     <ul>
+                        <li>Name: {{ student.first_name }} {{ student.last_name }}</li>
+                        <li>E-mail: {{ student.email }}</li>
+                        <li>In club: {{ student.in_club }}</li>
+                        <li>Credits available: {{ student.credits }}</li>
+                     </ul>      
+              </p>
+        <br>
+        <br>
+        <a href="{% url 'accounts' %}"><input type="button" id="back" value="Go Back" style="margin-left: 4%;"/></a>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    </body>
+        
+
+    {% endblock %}

@@ -1,0 +1,108 @@
+{% load static %} 
+{% load crispy_forms_tags %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>UWE Flix</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <head>
+
+        <!-- Basic Page Needs
+        –––––––––––––––––––––––––––––––––––––––––––––––––– 
+        "{% static 'showings\batman.jpg' %}"
+    -->
+        <meta charset="utf-8">
+        <title>UWEFlix cinema login page</title>
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <!-- Mobile Specific Metas
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- FONT
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+        <!-- CSS
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="stylesheet" href="{% static 'css\normalize.css' %}">
+        <link rel="stylesheet" href="{% static 'css\skeleton.css' %}">
+
+        <!-- Favicon
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+        <link rel="icon" type="image/png" href="images/favicon.ico">
+        
+       <style>
+           #guest{
+               background-color:#8cc2ee;
+               padding: 0%;
+               height: 4.2vw;
+               width: 12vw;
+               margin-top: 6%;
+               border-radius: 15px;
+               color: black;
+            }
+            #guest:hover{
+                box-shadow: 2px 2.5px 2.5px 2px black;
+            }
+       </style>
+
+
+    </head>
+    <body>
+    {% if messages %}
+        {% for message in messages %}
+          
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+          </div>
+
+        {% endfor %}
+    {% endif %}
+        <!-- Primary Page Layout
+        –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+
+        <form action="" method=POST>
+			{% csrf_token %}
+		<form>
+
+        <div class="container">
+            <div class="row">
+                <center>
+                <div class="one-half column" style="margin-top: 10%">
+                    <h4>UWEFlix Cinema System</h4>
+                    <br>
+                    <br>
+                        <div>
+                            <label for="username">Username</label>
+                            <input class="u-full-width" type="text" placeholder=" " name="username"`>
+                        </div>
+
+                        <div>
+                            <label for="password">Password</label>
+                            <input class="u-full-width" type="password" placeholder=" " name="password">
+                        </div>
+                        <br>
+                        <br>
+                        <input class="button-primary" type="submit" value="Submit" name="loginButton" style="margin-left: 12vw;">
+                        <a href = "{% url 'forgotten_password' %}" style="margin-left: 2vw">Forgotten your password?</a>
+                </div>
+                <a href = "{% url 'forgotten_username' %}" style="margin-left: 19.5vw">Forgotten your username?</a>
+                </center>
+            </div>
+        </div>
+        </form>
+        <center>
+            <a href="{% url 'home' %}" class="w3-button" id="guest" style="background-color: powderblue; margin-left: 6vw;">Return to Main Page</a>
+        </center>
+        <!-- End Document –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    </body>
+</html>

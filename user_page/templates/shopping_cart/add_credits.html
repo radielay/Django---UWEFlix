@@ -1,0 +1,47 @@
+{% extends "payment/payment_page.html" %}
+
+    {% block content %}
+    
+    {% load static %}
+
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>Buy credits </title>
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        </head>
+        <body>
+            <div class="w3-container">
+                <div class = "row">
+                        <div class="column">
+                            <br>
+                            <br>
+                            <br>
+                            <h4 style="background-color:powderblue;"><b>Make your payment</b></h4>
+                            <br>
+                            <center>
+                            <form method = "POST">
+                                {% csrf_token %}
+                                {{ form.as_p }}   
+                                <input type="submit" id="payment" value="Pay now" style="margin-left: 20%; background-color: powderblue;"/>
+                                <a href="{{request.META.HTTP_REFERER}}"><input type="button" id="back" value="Go Back" style="margin-left: 10%;"/></a>
+                            </form>
+                            {% if msg %}
+                              <h4 style="color: crimson;"> Invalid username input </h4>
+                            {% endif %}
+                            {% if msg2 %}
+                              <h4 style="color: crimson;"> Your required credits input is invalid</h4>
+                            {% endif %}
+                            </center>
+                            
+                            <br>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>
+
+    {% endblock %}

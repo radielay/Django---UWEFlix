@@ -1,0 +1,14 @@
+{% extends 'user_page/home_page.html' %}
+{% block content %}
+
+    {% for obj in film %}
+
+    <h3>{{ obj.title }}</h3>
+    <img src="/{{ BASIC_DIR }}/{{obj.img}}" width="120"/>
+    <p>{{ obj.age_rating }}</p>
+    <p>{{ obj.description }}</p>
+    <br>
+    {% endfor %}
+    
+
+{% endblock %}

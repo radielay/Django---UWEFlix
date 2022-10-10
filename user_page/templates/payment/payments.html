@@ -1,0 +1,36 @@
+{% extends "payment/payment_page.html" %}
+    
+    {% block content %}
+    
+    {% load static %}
+
+    <body>
+
+        {% for order in orders %}
+            <div class="card">
+                <br>
+                <br>
+                <div class="card-header" style="background-color: powderblue;">
+                   <h3>Order ID: {{ order.id }}</h3>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                     <h4>Date: {{ order.date }} --> Price: {{ order.price }} credits</h4>
+                 </p>    
+                </div>
+            </div>
+
+        {% endfor %}    
+        
+        <br>
+        <br>
+        <br>
+        <a href="{% url 'logged_in' %}"><input type="button" id="payment" value="Return" style="margin-left: 45%"/></a>
+        <br>
+        <br>
+        <br>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    </body>
+        
+
+    {% endblock %}

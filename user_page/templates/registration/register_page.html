@@ -1,0 +1,101 @@
+{% load static %}
+    
+    <!DOCTYPE html>
+    <html>
+    <head>
+    <title>UWE Flix</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="{% static 'css\normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'css\skeleton.css' %}">
+    
+            <meta charset="utf-8">
+            <title>User Registration</title>
+            <meta name="description" content="">
+            <meta name="author" content="">
+    
+            <!-- Mobile Specific Metas
+            –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+            <!-- FONT
+            –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+            <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+            <style>
+                a.custom-hover-color:hover { 
+                  background-color: powderblue !important;
+                }
+                #register{
+                  background-color:#8cc2ee;
+                  padding: 0%;
+                  height: 4.2vw;
+                  width: 12vw;
+                  margin-left: 55vw;
+                  border-radius: 15px;
+                  color: black;
+                }
+                #register:hover{
+                  box-shadow: 2px 2.5px 2.5px 2px black;
+                }
+                #back{
+                  border-radius: 15px;
+                }
+                #back:hover{
+                  box-shadow: 2px 2.5px 2.5px 2px black;
+                  background-color: rgb(83, 246, 175);
+                }
+              </style>
+            
+    </head>
+    <body>
+
+        !-- Navbar top-->
+
+
+        <div class="w3-top">
+          <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+            <a href="{% url 'home' %}" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color"><b>UWE</b> Flix</a>
+            
+            
+            <!-- Float links to the right. Hide them on small screens -->
+            
+            <div class="w3-right w3-hide-small">
+              <a href="login" class="w3-bar-item w3-bar-item w3-button w3-white custom-hover-color">Log in</a>
+            </div>
+          </div>
+        </div>
+        
+    
+    <div class="container">
+        <div class="row">
+            <div class="two-third.column">
+                <br>
+                <br>
+                <h4 style="background-color:powderblue;"><b>Create your Account</b></h4>
+                <br>
+                <br>
+                <br>
+                <center>
+                <form method="POST" class = "form-group">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <input type="submit" id="register" value="Register" style="margin-left: 22%; background-color: powderblue;"/>
+                    <a href="{{request.META.HTTP_REFERER}}"><input type="button" id="back" value="Go Back" style="margin-left: 10%;"/></a>
+                </form>
+                {% if msg %}
+                  <h4 style="color: crimson;"> Email already exists</h4>
+                {% endif %}
+                </center>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+ </body>
+ </html>
